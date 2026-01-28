@@ -1,8 +1,6 @@
 <template>
   <footer class="bg-[#1D0F26] text-white pt-16 pb-8 overflow-hidden relative">
-    <div class="absolute inset-0 z-0 opacity-5 pointer-events-none" 
-         style="background-image: url('/images/pattern-clouds.png'); background-size: 600px;">
-    </div>
+
 
     <div class="container mx-auto px-6 relative z-10">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
