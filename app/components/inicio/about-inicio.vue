@@ -5,7 +5,7 @@
 
     <div class="container mx-auto px-6 relative z-10">
       <h2 class="text-[#F2F2F2] text-3xl md:text-6xl font-black uppercase mb-8 md:mb-4 leading-tight drop-shadow-2xl">
-        ¿Quiénes Somos?
+        ¿Quiénes Soms?
       </h2>
 
       <div class="relative flex flex-col lg:flex-row items-center lg:min-h-[650px] gap-8 lg:gap-0">
