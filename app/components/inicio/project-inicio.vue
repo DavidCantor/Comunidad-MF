@@ -1,6 +1,6 @@
 <template>
-  <section class="relative py-4 bg-[#402B8C] overflow-hidden">
-
+  <section class="relative py-4 bg-[#3E2781] overflow-hidden">
+    
 
     <div class="container mx-auto px-6 relative z-10 text-center">
       <h2 class="text-[#F2F2F2] text-4xl md:text-5xl font-black uppercase mb-16 tracking-tight">

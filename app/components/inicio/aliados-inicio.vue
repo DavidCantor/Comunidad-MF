@@ -1,5 +1,5 @@
 <template>
-  <section class="relative py-12 md:py-24 bg-[#402B8C] overflow-hidden">
+  <section class="relative py-12 md:py-24 bg-[#3E2781] overflow-hidden">
 
 
     <div class="container mx-auto px-4 md:px-6 relative z-10">

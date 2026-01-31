@@ -1,29 +1,27 @@
 <template>
   <nav class="sticky top-0 w-full z-[100] bg-[#1D0F26] border-b border-white/5 transition-all duration-300">
-    
+    <div 
+  class="absolute inset-0 opacity-[0.3] pointer-events-none scale-y-[-1]" 
+  style="background-image: url('/images/Recurso-3.webp'); background-size: cover; background-position: center; background-repeat: no-repeat; z-index: 1;">
+</div>
 
     <div class="container mx-auto flex items-center justify-between relative z-10 px-4 md:px-8 h-20 md:h-24">
       
-      <NuxtLink to="/" class="group flex flex-col leading-tight">
-        <span class="text-white font-black text-xl md:text-2xl tracking-tighter group-hover:text-indigo-400 transition-colors">
-          COMUNIDAD <span class="text-indigo-500">M&F</span>
-        </span>
-        <span class="text-[9px] md:text-[10px] text-indigo-300/60 tracking-[0.3em] uppercase font-bold">
-          (cambiar por el logo real y usar el svg correcto para el fondo de nubes)
-        </span>
-      </NuxtLink>
+<NuxtLink to="/" class="group flex items-center transition-transform active:scale-95">
+  <NuxtImg 
+    src="/images/Recurso-4.webp" 
+    alt="Logo Comunidad M&F" 
+    class="h-12 md:h-16 w-auto object-contain group-hover:brightness-110 transition-all"
+  />
+</NuxtLink>
 
       <ul class="hidden lg:flex items-center gap-x-8">
-        <li v-for="item in menuItems.slice(0, -1)" :key="item.path">
-          <NuxtLink :to="item.path" class="nav-link text-xs font-bold tracking-widest text-gray-400 hover:text-white uppercase">
+        <li v-for="item in menuItems.slice(0)" :key="item.path">
+          <NuxtLink :to="item.path" class="nav-link text-lg font-bold tracking-widest text-gray-400 hover:text-white uppercase">
             {{ item.name }}
           </NuxtLink>
         </li>
-        <li>
-          <NuxtLink :to="menuItems[4].path" class="cta-button">
-            {{ menuItems[4].name }}
-          </NuxtLink>
-        </li>
+
       </ul>
 
       <button 

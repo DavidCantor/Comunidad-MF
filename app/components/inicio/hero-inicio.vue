@@ -1,7 +1,7 @@
 <template>
   <section class="relative w-full h-screen overflow-hidden bg-[#271540] z-0">
 
-
+    
     <transition-group name="slide-fade" tag="div" class="relative w-full h-full">
       <div 
         v-for="(slide, index) in slides" 

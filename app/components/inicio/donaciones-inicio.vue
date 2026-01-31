@@ -1,6 +1,8 @@
 <template>
-  <section class="relative py-24 bg-[#402B8C] overflow-hidden">
-
+  <section class="relative py-24 bg-[#3E2781] overflow-hidden">
+    <div class="absolute inset-0 z-0 opacity-20 pointer-events-none" 
+         style="background-image: url('/images/pattern-clouds.png'); background-size: 800px;">
+    </div>
 
     <div class="container mx-auto px-6 relative z-10">
       <div class="flex justify-center lg:pr-32">
@@ -12,12 +14,49 @@
       <div class="relative flex flex-col lg:flex-row items-center lg:items-stretch">
         
         <div class="w-full lg:w-4/12 z-20 h-[400px] md:h-[550px] lg:-mr-16">
-          <div class="w-full h-full overflow-hidden bg-gray-300 rounded-[2rem] shadow-2xl border-4 border-white/10">
-            <NuxtImg 
-              src="/images/inicio/about-1.jpg" 
-              alt="Comunidad M&F" 
-              class="w-full h-full object-cover"
-            />
+          <div class="group w-full h-full bg-gray-300 rounded-[2rem] shadow-2xl border-4 border-white/10 overflow-hidden relative">
+            
+            <div class="relative w-full h-full">
+              <div 
+                v-for="(img, index) in images" 
+                :key="index"
+                class="absolute inset-0 transition-opacity duration-1000 ease-in-out"
+                :class="index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'"
+              >
+                <NuxtImg 
+                  :src="img" 
+                  alt="Comunidad M&F" 
+                  class="w-full h-full object-cover transform transition-transform duration-[5s]"
+                  :class="index === currentIndex ? 'scale-110' : 'scale-100'"
+                />
+              </div>
+
+              <div class="absolute inset-0 z-30 flex items-center justify-between px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                <button 
+                  @click="prevSlide" 
+                  class="pointer-events-auto w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white flex items-center justify-center transition-all"
+                >
+                  <span class="text-2xl">❮</span>
+                </button>
+                <button 
+                  @click="nextSlide" 
+                  class="pointer-events-auto w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 backdrop-blur-sm text-white flex items-center justify-center transition-all"
+                >
+                  <span class="text-2xl">❯</span>
+                </button>
+              </div>
+
+              <div class="absolute bottom-6 left-0 w-full z-30 flex justify-center items-center gap-3">
+                <button 
+                  v-for="(_, index) in images" 
+                  :key="index"
+                  @click="goToSlide(index)"
+                  class="h-2.5 rounded-full transition-all duration-300 shadow-sm"
+                  :class="index === currentIndex ? 'bg-white w-8' : 'bg-white/50 w-2.5 hover:bg-white/80'"
+                ></button>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -32,14 +71,14 @@
           </div>
 
           <div class="mt-10 flex justify-center">
-          <NuxtLink 
-            :to="project.link"
-            class="w-full max-w-[200px] bg-[#A61F2D] text-white font-black py-3 px-6 
-                   rounded-t-none rounded-b-full text-center
-                   hover:bg-[#8b1a26] transition-all uppercase italic tracking-widest text-sm"
-          >
-            Ver más
-          </NuxtLink>
+            <NuxtLink 
+              to="/"
+              class="w-full max-w-[200px] bg-[#A61F2D] text-white font-black py-3 px-6 
+                     rounded-t-none rounded-b-full text-center
+                     hover:bg-[#8b1a26] transition-all uppercase italic tracking-widest text-sm shadow-md"
+            >
+              Ver más
+            </NuxtLink>
           </div>
         </div>
 
@@ -49,29 +88,64 @@
 </template>
 
 <script setup>
-const project = {
-  link: '/'
-}
+import { ref, onMounted, onUnmounted } from 'vue';
+
+const images = [
+  '/images/inicio/about-1.jpg',
+  '/images/inicio/about-1.jpg',
+  '/images/inicio/about-1.jpg'
+];
+
+const currentIndex = ref(0);
+let timer = null;
+
+const startTimer = () => {
+  timer = setInterval(nextSlide, 5000);
+};
+
+const stopTimer = () => {
+  if (timer) clearInterval(timer);
+};
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % images.length;
+};
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + images.length) % images.length;
+};
+
+const goToSlide = (index) => {
+  currentIndex.value = index;
+  stopTimer();
+  startTimer();
+};
+
+onMounted(startTimer);
+onUnmounted(stopTimer);
 </script>
 
 <style scoped>
-/* Ajuste para que la imagen sobresalga por arriba y por abajo de la tarjeta blanca */
 @media (min-width: 1024px) {
   .lg\:-mr-16 {
     margin-right: -4rem;
   }
-  
-  /* Forzamos que la tarjeta blanca sea un poco más baja que la imagen para el efecto 'overlap' */
   .bg-white {
     margin-top: 40px;
     margin-bottom: 40px;
   }
 }
 
-img {
-  transition: transform 0.5s ease;
+/* Efecto Ken Burns */
+.scale-110 {
+  transform: scale(1.1);
 }
-img:hover {
-  transform: scale(1.05);
+
+/* Ajuste para que las flechas no estorben en pantallas muy pequeñas */
+@media (max-width: 640px) {
+  .pointer-events-auto {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 }
 </style>
