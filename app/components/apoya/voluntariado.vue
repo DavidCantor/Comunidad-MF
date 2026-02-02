@@ -16,7 +16,7 @@
             Sé parte del <span class="text-[#A61F2D]">Equipo</span>
           </h2>
           <p class="text-gray-300 text-lg mb-8 max-w-xl">
-            ¿Tienes habilidades en danza, logística, diseño o idiomas? Buscamos jóvenes apasionados que quieran donar su tiempo y talento para hacer crecer la cultura asiática en la región.
+            ¿Tienes habilidades en danza, logística, diseño o idiomas? Buscamos jóvenes apasionados que quieran donar su tiempo y talento para hacer crecer la cultura asiática en Sabana de Occidente.
           </p>
           <NuxtLink to="/registro-voluntario" 
             class="inline-block bg-white text-[#1D0F26] font-black px-10 py-4 rounded-t-none rounded-b-[2rem] hover:bg-[#A61F2D] hover:text-white transition-all uppercase italic tracking-widest shadow-xl">
