@@ -8,10 +8,10 @@
 
     <div class="relative z-10">
         <InicioHeroInicio />
-        <InicioAboutInicio class="!bg-transparent" />
-        <InicioProjectInicio class="!bg-transparent" />
-        <InicioDonacionesInicio class="!bg-transparent" />
-        <InicioAliadosInicio class="!bg-transparent" />
+        <InicioAboutInicio class="bg-transparent!" />
+        <InicioProjectInicio class="bg-transparent!" />
+        <InicioDonacionesInicio class="bg-transparent!" />
+        <InicioAliadosInicio class="bg-transparent!" />
     </div>
   </main>
 </template>
