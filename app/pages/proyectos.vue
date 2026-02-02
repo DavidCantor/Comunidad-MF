@@ -1,5 +1,5 @@
 <template>
     <section>
-        <h1>Proyectos</h1>
+        <h1>Proyectos asdfasf</h1>
     </section>
 </template>
