@@ -21,8 +21,8 @@
 
 <script setup>
 const beneficios = [
-  { id: 1, titulo: 'Impacto Social', desc: 'Tu apoyo financia talleres gratuitos para jóvenes de escasos recursos.' },
-  { id: 2, titulo: 'Visibilidad', desc: 'Como aliado, tu marca estará presente en todos nuestros eventos masivos.' },
-  { id: 3, titulo: 'Certificación', desc: 'Entregamos certificados de donación y voluntariado para tu perfil profesional.' }
+  { id: 1, titulo: 'Impacto Social', desc: 'texto ejemplo' },
+  { id: 2, titulo: 'Visibilidad', desc: 'texto ejemplo' },
+  { id: 3, titulo: 'Certificación', desc: 'texto ejemplo' }
 ]
 </script>
